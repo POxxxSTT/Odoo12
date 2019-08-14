@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+
+        <record id="worker_free_view" model="ir.ui.view">
+            <field name="name">Worker Form</field>
+            <field name="model">zhigailov.zhigailov</field>
+            <field name="arch" type="xml">
+                <form string="Workers">
+                    <sheet>
+                        <field name="photo" widget="image" class="oe_left oe_avatar" />
+                        <div class="oe_title">
+                            <h3>
+                                <field name="name"/>
+                            </h3>
+                        </div>                    
+                        <group>
+                            <group>
+                                <field name="job_date"/>
+                                <field name="chief"/>
+                            </group>
+                            <group>
+                                <field name="post"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="worker_tree_view" model="ir.ui.view">
+            <field name="name">Worker Tree</field>
+            <field name="model">zhigailov.zhigailov</field>
+            <field name="arch" type="xml">
+                <tree string="Workers">
+                    <field name="name"/>
+                    <field name="post"/>
+                    <field name="job_date"/>
+                    <field name="chief"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record id="worker_menu_action" model="ir.actions.act_window">
+                <field name="name">Workers</field>
+                <field name="res_model">zhigailov.zhigailov</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="domain">[]</field>
+                <field name="help" type="html">
+                        <p class="oe_view_nocontent_create">Create The First Worker</p>
+                </field>
+        </record>
+
+            <menuitem id="modul_menu" name="ModulPersonnel"/>
+            <menuitem id="worker_menu" parent="modul_menu" name="Workers" action="worker_menu_action"/>
+    </data>
+</odoo>
